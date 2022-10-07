@@ -15,8 +15,10 @@ typedef struct {
 	uint8_t* code;  // a type of unsigned integer of length 8 bits -- A byte
 } Chunk;
 
-// Chunk functions
+// Chunk ctor
 void initChunk(Chunk* chunk);
+// memory management
 void writeChunk(Chunk* chunk, uint8_t byte);
+void freeChunk(Chunk* chunk);
 
 #endif

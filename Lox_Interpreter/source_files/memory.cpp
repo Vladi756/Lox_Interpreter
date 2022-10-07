@@ -9,6 +9,6 @@ void* reallocate(void* pointer, size_t oldSize, size_t newSize) {
 	}
 	// handles all other cases (is newSize == 0, then realloc = malloc basically)
 	void* result = realloc(pointer, newSize);
-
+	if (result == NULL) exit(1);
 	return result;
 }
