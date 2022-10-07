@@ -4,7 +4,7 @@
 #include "common.h"
 
 // defining instructions operational codes 
-typename enum {
+typedef enum {
 	OP_RETURN,		// return from current function
 } OpCode;
 
