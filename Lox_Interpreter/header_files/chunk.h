@@ -6,6 +6,7 @@
 
 // defining instructions operational codes 
 typedef enum {
+	OP_CONSTANT, 
 	OP_RETURN,		// return from current function
 } OpCode;
 
