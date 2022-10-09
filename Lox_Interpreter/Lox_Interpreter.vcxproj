@@ -20,12 +20,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source_files\chunk.cpp" />
+    <ClCompile Include="source_files\debug.cpp" />
     <ClCompile Include="source_files\main.cpp" />
     <ClCompile Include="source_files\memory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header_files\chunk.h" />
     <ClInclude Include="header_files\common.h" />
+    <ClInclude Include="header_files\debug.h" />
     <ClInclude Include="header_files\memory.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
