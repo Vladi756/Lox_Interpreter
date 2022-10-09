@@ -1,5 +1,5 @@
-#ifndef clox_value.h 
-#define clox_value.h
+#ifndef clox_value_h 
+#define clox_value_h
 
 #include "../header_files/common.h"
 

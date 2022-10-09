@@ -14,7 +14,7 @@
  (type*)reallocate(pointer, sizeof(type) * (oldCount), \
  sizeof(type) * (newCount))
 
-// freeing chunk array by taking current size and reallocating to 0 size
+// freeing chunk by taking current size and reallocating to 0 size
 #define FREE_ARRAY(type, pointer, oldCount) \
 	(type*)reallocate(pointer, sizeof(type) * oldCount, 0)
 
