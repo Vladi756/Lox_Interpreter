@@ -4,7 +4,7 @@
 #include "common.h"
 
 
-// macro to calculate a new capacity given the current capacity 
+// macro to calculate a new capacity given the current capacity - 8 chosen arbitrarily 
 #define GROW_CAPACITY(capacity) \
 	((capacity) < 8 ? 8 : capacity * 2)
 
