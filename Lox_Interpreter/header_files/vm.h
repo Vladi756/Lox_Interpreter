@@ -29,8 +29,7 @@ typedef enum {
 // Virtual Machine functions 
 void initVM();
 void freeVM();
-
-InterpretResult interpret(Chunk* chunk);
+InterpretResult interpret(const char* source);
 void push(Value vlaue);
 Value pop();
 

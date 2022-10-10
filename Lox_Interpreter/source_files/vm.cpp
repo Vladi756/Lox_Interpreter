@@ -1,6 +1,7 @@
 #include "../header_files/common.h"
 #include "../header_files/debug.h"
 #include "../header_files/vm.h"
+#include "../header_files/compiler.h"
 #include <stdio.h>
 
 VM vm;
@@ -83,8 +84,7 @@ static InterpretResult run() {
 // Given an opcode we have to determine which C code this refers to - and execute it! 
 // The above process is called 'decoding'the instruction. 
 
-InterpretResult interpret(Chunk* chunk) {
-	vm.chunk = chunk; 
-	vm.ip = vm.chunk->code;
-	return run();
+InterpretResult interpret(const char* source) {
+	compile(source);
+	return INTERPRET_OK;
 }
