@@ -6,8 +6,8 @@
 
 // defining instructions operational codes 
 typedef enum {
-	OP_CONSTANT, 
-	OP_RETURN,		// return from current function
+	OP_CONSTANT,    // defines operation involving constants
+	OP_RETURN,		// return from current function or loop
 } OpCode;
 
 // dynamic array to store instructions and relevant data 
