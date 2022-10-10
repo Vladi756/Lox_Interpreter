@@ -30,7 +30,7 @@ typedef enum {
 void initVM();
 void freeVM();
 
-InterpretResult interpet(Chunk* chunk);
+InterpretResult interpret(Chunk* chunk);
 void push(Value vlaue);
 Value pop();
 

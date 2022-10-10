@@ -8,6 +8,11 @@
 typedef enum {
 	OP_CONSTANT,    // defines operation involving constants
 	OP_RETURN,		// return from current function or loop
+	OP_NEGATE,      // the minus operand
+	OP_ADD,			// Binary arithmetic operators
+	OP_SUBTRACT,
+	OP_MULTIPLY,
+	OP_DIVIDE,
 } OpCode;
 
 // dynamic array to store instructions and relevant data 

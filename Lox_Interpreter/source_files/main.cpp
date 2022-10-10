@@ -7,22 +7,18 @@
 // argv is Argument Values || A pointer to an array of characters.
 int main(int argc, const char* argv[]) {
 	initVM();
-	Chunk chunk;
-	// creates chunk
-	initChunk(&chunk);
-	writeChunk(&chunk, OP_RETURN, 123);
-
-	// create constant to add to chunk - 1.3 chosen arbitrarily 
-	int constant = addConstant(&chunk, 1.3);
-	writeChunk(&chunk, constant, 123);
-	writeChunk(&chunk, OP_CONSTANT, 123);
-
-	// disassemblers take in machine code and output readable Assembly instructions
-	disassembleChunk(&chunk, "test chunk");
-
-	interpret(&chunk);
+	// if you pass no arguments you are dropped into a REPL
+	if (argc == 1) {
+		repl();
+	}
+	// 1 argument is understood as a path to a file to be run
+	else if (argc == 2) {
+		runFile(argv[1]);
+	}
+	else {
+		fprintf(stderr, "Usage: clox [path]\n");
+		exit(64);
+	}
 	freeVM();
-	freeChunk(&chunk);
-
 	return 0;
 }
