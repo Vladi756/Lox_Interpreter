@@ -24,6 +24,7 @@
     <ClCompile Include="source_files\main.cpp" />
     <ClCompile Include="source_files\memory.cpp" />
     <ClCompile Include="source_files\value.cpp" />
+    <ClCompile Include="source_files\vm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header_files\chunk.h" />
@@ -31,6 +32,7 @@
     <ClInclude Include="header_files\debug.h" />
     <ClInclude Include="header_files\memory.h" />
     <ClInclude Include="header_files\value.h" />
+    <ClInclude Include="header_files\vm.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -10,6 +10,7 @@ void freeVM() {
 }
 // runs the VM 
 static InterpretResult run() {
+// Initialize instruction pointer to point to the next instruction 
 #define READ_BYTE() (*vm.ip++)
 	for (;;) {
 		uint8_t instruction;

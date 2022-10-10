@@ -7,7 +7,7 @@
 typedef struct {
 	Chunk* chunk;
 	// byte pointer - acts as instruction pointer or program counter IP or PC 
-	uint8_t ip;
+	uint8_t* ip;
 } VM;
 
 // Return code from VM after interpreting chunk 
