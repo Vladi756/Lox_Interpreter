@@ -4,12 +4,30 @@
 #include <stdio.h>
 
 VM vm;
+
+// resets the stack to a clean slate 
+static void resetStack() {
+	vm.stackTop = vm.stack;
+}
+
 // create virtual machine 
 void initVM() {
+	resetStack();
 }
 // free memory occupied by virtual machine 
 void freeVM() {
 }
+// VM's Stack Functions 
+void push(Value value) {
+	// de-referencing then setting to value 
+	*vm.stackTop = value;
+	vm.stackTop++;
+}
+Value pop() {
+	vm.stackTop--;
+	return *vm.stackTop;
+}
+
 // runs the VM 
 static InterpretResult run() {
 // Initialize instruction pointer to point to the next instruction 
@@ -20,6 +38,14 @@ static InterpretResult run() {
 #define READ_CONSTANT() (vm.chunk->constants.values[READ_BYTE()])
 	for (;;) {
 #ifdef DEBUG_TRACE_EXECUTION 
+		printf(" ");
+		// print the stack trace when in debug mode 
+		for (Value* slot = vm.stack; slot < vm.stackTop; slot++) {
+			printf("[ ");
+			printValue(*slot);
+			printf(" ]");
+		}
+		printf("\n");
 		disassembleInstruction(vm.chunk, (int)(vm.ip - vm.chunk->code));
 #endif
 		uint8_t instruction;
@@ -27,11 +53,13 @@ static InterpretResult run() {
 		switch (instruction = READ_BYTE()) {
 		case OP_CONSTANT: {
 			Value constant = READ_CONSTANT();
-			printValue(constant);
-			printf("\n");
+			// producing a value == pushing it on to the stack 
+			push(constant);
 			break;
 		}
 		case OP_RETURN: {
+			printValue(pop());
+			printf("\n");
 			return INTERPRET_OK;
 		}
 		}
